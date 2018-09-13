@@ -16,7 +16,7 @@
 
 ## 其它
 
-- 可以在 `template` 文件夹中找到 `.rmd` 和 `.docx` 的模板，前者用于控制内容（其中目前包含了两种动态产生 Markdown 文本的方法），后者用于控制产生的 Word 报告中标题、正文、图片等内容的格式
+- 可以在 `template` 文件夹中找到 `.rmd` 和 `.docx` 的模板，前者用于控制内容（其中目前包含了两种动态产生 Markdown 文本的方法：Inline R code using `paste()` & R code chunk using `glue::glue()`），后者用于控制产生的 Word 报告中标题、正文、图片等内容的格式
 - `template/temp` 文件夹会保存从每个 PDF 报告中所截取出的图片，可以自己使用或删除
 
 ***
