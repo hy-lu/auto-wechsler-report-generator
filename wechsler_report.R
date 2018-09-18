@@ -1,3 +1,8 @@
+# TODO: add an option to avoid overwriting exsiting Word docs
+# word_file <- list.files(path = "output/", pattern = ".\\.docx*", full.names = TRUE)
+
+# TODO: improve the code flexibility for modularized application
+
 pkg_list <-
   c("pdftools",
     "magick",
@@ -6,13 +11,18 @@ pkg_list <-
     "tibble",
     "purrr",
     "readr",
-    "dplyr")
+    "dplyr",
+    "rmarkdown")
 if (!all(pkg_list %in% installed.packages())) {
-  install.packages(setdiff(pkg_list, installed.packages()))
+  install.packages(setdiff(pkg_list, installed.packages()), dependencies = TRUE)
 }
 `%>%` <- magrittr::`%>%`
 pdf_file <- list.files(path = "source/", pattern = ".\\.pdf", full.names = TRUE)
-word_file <- list.files(path = "output/", pattern = ".\\.docx*", full.names = TRUE)
+if (!dir.exists("output")) {
+  dir.create("output")
+} else if (!dir.exists("output/image")) {
+  dir.create("output/image")
+}
 
 wechsler <- function(x) {
   text <- pdftools::pdf_text(x) %>%
@@ -138,11 +148,11 @@ wechsler <- function(x) {
   )
   magick::image_write(
     scrshot_cropped,
-    path = paste0("template/temp/", name, "_scrshot_cropped.png"),
+    path = paste0("output/image/", name, "_scrshot_cropped.png"),
     format = "png"
   )
   rmarkdown::render(
-    "template/wechsler_template.rmd",
+    input = "template/wechsler_template.rmd",
     output_file = paste0(name, "_测评报告.docx"),
     output_dir = "output/",
     params = list(

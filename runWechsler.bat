@@ -1,1 +1,1 @@
-Rscript -e "source('wechsler_report.R', encoding = 'UTF-8')"
+Rscript -e "source('wechsler_report.R', encoding = 'UTF-8', chdir = TRUE)"

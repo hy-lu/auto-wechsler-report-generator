@@ -16,8 +16,24 @@
 
 ## 其它
 
-- 可以在 `template` 文件夹中找到 `.rmd` 和 `.docx` 的模板，前者用于控制内容（其中目前包含了两种动态产生 Markdown 文本的方法：Inline R code using `paste()` & R code chunk using `glue::glue()`），后者用于控制产生的 Word 报告中标题、正文、图片等内容的格式
-- `template/temp` 文件夹会保存从每个 PDF 报告中所截取出的图片，可以自己使用或删除
+- 可以在 `template` 文件夹中找到 `.rmd` 和 `.docx` 的模板，前者用于控制内容，后者用于控制产生的 Word 报告中标题、正文、图片等内容的格式
+  - 其中目前包含了两种动态产生 Markdown 文本的方法：Inline R code using `paste()` & R code chunk using `glue::glue()`.
+- `output/image` 文件夹会保存从每个 PDF 报告中所截取出的图片，可以自己使用或删除
+
+## 近期更新
+
+- 更改了 PDF 截取图片的保存路径以及 Markdown 中调用图片的路径
+- 补充必要所需的 R package
+- 自动新建输出文件夹
+
+## TODO
+
+- [ ] 增加适用于 MAC 系统的批处理文件
+- [ ] 通过 Inline R code 控制 R chuck 的执行
+- [ ] 选择性生成/覆盖已有的 Word 文档
+- [ ] 模块化代码以便插入其他的自动化报告中
+
+
 
 ***
 
