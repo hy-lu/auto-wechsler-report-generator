@@ -9,10 +9,12 @@ params:
 ---
 
 ```
-受试者姓名：`r params$data_list$name`  
-受试者生日：`r as.character(params$data_list$dates[["birth"]])`  
-测评日期：`r as.character(params$data_list$dates[["test"]])`  
+受试者姓名：`r params$data_list$name`
+受试者生日：`r as.character(params$data_list$dates[["birth"]])`
+测评日期：`r as.character(params$data_list$dates[["test"]])`
 ```
+
+
 
 ***
 
