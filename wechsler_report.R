@@ -48,6 +48,7 @@ wechsler <- function(x) {
     image_ocr(language = "chi_sim") %>% 
     str_trim()
   text <- pdftools::pdf_text(x)[1] %>%
+    str_replace_all("\n+", "\n") %>%
     readr::read_lines() %>%
     stringr::str_trim() %>%
     stringr::str_split(pattern = "[:whitespace:]+")
